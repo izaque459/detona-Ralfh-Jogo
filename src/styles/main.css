@@ -1,5 +1,7 @@
 .container{
     display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .menu{
@@ -11,4 +13,9 @@
     width: 100%;
     background-color: black;
     color:red;
+}
+
+.panel{
+    border:1px solid red;
+    margin: 1rem;
 }
