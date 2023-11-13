@@ -13,7 +13,18 @@
     height: 90px;
     width: 100%;
     background-color: black;
+    color:white;
+}
+
+.menu h2:nth-child(odd){
     color:red;
+}
+
+.menu-lives{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .panel{
