@@ -14,10 +14,15 @@
     width: 100%;
     background-color: black;
     color:white;
+    border-bottom: 1px solid gold;
 }
 
 .menu h2:nth-child(odd){
     color:red;
+}
+
+.menu-time h2:nth-child(even), .menu-score h2:nth-child(even){
+    margin-top: 1rem;
 }
 
 .menu-lives{
