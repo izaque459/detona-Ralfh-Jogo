@@ -30,5 +30,6 @@
 }
 
 .enemy{
-    background-color: red;
+    background-image: url("../images/ralph.png");
+    background-size: cover;
 }
