@@ -6,7 +6,7 @@ const state = {
         score: document.querySelector("#score"), 
      },
     values:{ 
-        gameVelocity: 1000,
+      //  gameVelocity: 1000,
         hitPosition: 0,
         result: 0,
         currentTime: 60,
@@ -16,6 +16,13 @@ const state = {
         countDownTimerId: setInterval(countDown,1000),
     }
 };
+
+
+function playSound(audioName){
+    let audio = new Audio(`./src/audios/${audioName}.m4a`);
+    audio.volume = 0.2;
+    audio.play();
+}
 
 function countDown(){
     state.values.currentTime--;
@@ -55,6 +62,7 @@ function addListenerHitBox(){
                 state.values.result++;
                 state.view.score.textContent = state.values.result;
                 state.values.hitPosition = null;
+                playSound("hit");
             }
 
         });
