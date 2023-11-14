@@ -3,10 +3,12 @@ const state = {
         squares: document.querySelectorAll(".square"),
         enemy: document.querySelector(".enemy"),
         timeLeft: document.querySelector("#time-left"),
-        score: document.querySelector("#score"), 
+        score: document.querySelector("#score"),
+        livesLeft: document.querySelector("#lives"),
      },
     values:{ 
       //  gameVelocity: 1000,
+        lives: 3,
         hitPosition: 0,
         result: 0,
         currentTime: 60,
