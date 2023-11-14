@@ -20,6 +20,17 @@ const state = {
 };
 
 
+function decrementLives(){
+    state.values.lives--;
+    state.view.livesLeft.textContent=`x${state.values.lives}`;
+
+    if(state.values.lives<=0){
+        clearInterval(state.actions.timerId);
+        clearInterval(state.actions.countDownTimerId);
+        alert("Game Over! O seu resultado foi: "+ state.values.result);
+    }
+}
+
 function playSound(audioName){
     let audio = new Audio(`./src/audios/${audioName}.m4a`);
     audio.volume = 0.2;
@@ -65,6 +76,8 @@ function addListenerHitBox(){
                 state.view.score.textContent = state.values.result;
                 state.values.hitPosition = null;
                 playSound("hit");
+            }else{
+                decrementLives();
             }
 
         });
