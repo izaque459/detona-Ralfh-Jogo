@@ -20,14 +20,19 @@ const state = {
 };
 
 
+function endGame(){
+    clearInterval(state.actions.timerId);
+    clearInterval(state.actions.countDownTimerId);
+    alert("Game Over! O seu resultado foi: "+ state.values.result);
+
+}
+
 function decrementLives(){
     state.values.lives--;
     state.view.livesLeft.textContent=`x${state.values.lives}`;
 
     if(state.values.lives<=0){
-        clearInterval(state.actions.timerId);
-        clearInterval(state.actions.countDownTimerId);
-        alert("Game Over! O seu resultado foi: "+ state.values.result);
+       endGame();
     }
 }
 
@@ -42,9 +47,7 @@ function countDown(){
     state.view.timeLeft.textContent = state.values.currentTime;
 
     if(state.values.currentTime<=0){
-        clearInterval(state.actions.timerId);
-        clearInterval(state.actions.countDownTimerId);
-        alert("Game Over! O seu resultado foi: "+ state.values.result);
+        endGame();
     }
 }
 
@@ -71,6 +74,7 @@ function moveEnemy(){
 function addListenerHitBox(){
     state.view.squares.forEach((square )=> {
         square.addEventListener("mousedown", ()=>{
+            
             if(square.id === state.values.hitPosition){
                 state.values.result++;
                 state.view.score.textContent = state.values.result;
