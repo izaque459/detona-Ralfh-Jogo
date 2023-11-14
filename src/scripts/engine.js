@@ -74,15 +74,17 @@ function moveEnemy(){
 function addListenerHitBox(){
     state.view.squares.forEach((square )=> {
         square.addEventListener("mousedown", ()=>{
-            
-            if(square.id === state.values.hitPosition){
-                state.values.result++;
-                state.view.score.textContent = state.values.result;
-                state.values.hitPosition = null;
-                playSound("hit","m4a");
-            }else{
-                decrementLives();
-                playSound("failure-drum-sound-effect","mp3");
+          
+            if (state.values.currentTime > 0 && state.values.lives > 0){
+                if(square.id === state.values.hitPosition){
+                    state.values.result++;
+                    state.view.score.textContent = state.values.result;
+                    state.values.hitPosition = null;
+                    playSound("hit","m4a");
+                }else{
+                    decrementLives();
+                    playSound("failure-drum-sound-effect","mp3");
+                }
             }
 
         });
